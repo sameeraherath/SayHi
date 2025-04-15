@@ -12,12 +12,14 @@ class SpeechService {
     _speech.listen(
       onResult: (result) {
         _spokenText = result.recognizedWords;
+        print("User said: $_spokenText");
       },
     );
   }
 
   static Future<String> stopListening() async {
     await _speech.stop();
+    print("Final result: $_spokenText");
     return _spokenText;
   }
 }

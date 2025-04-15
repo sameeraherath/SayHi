@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AIService {
-  static const String _apiKey =
-      "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";
+  static final String _apiKey = dotenv.env['OPENROUTER_API_KEY'] ?? "";
   static const String _url = "https://openrouter.ai/api/v1/chat/completions";
   static const String _model = "mistralai/mistral-7b-instruct";
 
@@ -11,8 +11,8 @@ class AIService {
     final headers = {
       'Authorization': 'Bearer $_apiKey',
       'Content-Type': 'application/json',
-      'HTTP-Referer': 'https://your-app-name.com', // optional
-      'X-Title': 'SayHi', // optional title
+      'HTTP-Referer': 'https://sayhi.ai', // optional
+      'X-Title': 'SayHi',
     };
 
     final body = jsonEncode({

@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    print("Initializing Speech...");
     SpeechService.initSpeech();
   }
 
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     } else {
       setState(() => isListening = true);
+      print("Starting mic...");
       SpeechService.startListening();
     }
   }
